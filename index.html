@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Git et GitHub</title>
+    <title>Git and GitHub</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
@@ -23,37 +23,6 @@
         position: absolute;
         bottom: 3em;
       }
-      li p { line-height: 1.25em; }
-      .red { color: #fa0000; }
-      .large { font-size: 2em; }
-      a, a > code {
-        color: rgb(249, 38, 114);
-        text-decoration: none;
-      }
-      code {
-        background: #e7e8e2;
-        border-radius: 5px;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .remark-code-line-highlighted     { background-color: #373832; }
-      .pull-left {
-        float: left;
-        width: 47%;
-      }
-      .pull-right {
-        float: right;
-        width: 47%;
-      }
-      .pull-right ~ p {
-        clear: both;
-      }
-      #slideshow .slide .content code {
-        font-size: 0.8em;
-      }
-      #slideshow .slide .content pre code {
-        font-size: 0.9em;
-        padding: 15px;
-      }
       .inverse {
         background: #272822;
         color: #777872;
@@ -63,107 +32,65 @@
         color: #f3f3f3;
         line-height: 0.8em;
       }
-
-      /* Slide-specific styling */
-      #slide-inverse .footnote {
-        bottom: 12px;
-        left: 20px;
-      }
-      #slide-how .slides {
-        font-size: 0.9em;
-        position: absolute;
-        top:  151px;
-        right: 140px;
-      }
-      #slide-how .slides h3 {
-        margin-top: 0.2em;
-      }
-      #slide-how .slides .first, #slide-how .slides .second {
-        padding: 1px 20px;
-        height: 90px;
-        width: 120px;
-        -moz-box-shadow: 0 0 10px #777;
-        -webkit-box-shadow: 0 0 10px #777;
-        box-shadow: 0 0 10px #777;
-      }
-      #slide-how .slides .first {
-        background: #fff;
-        position: absolute;
-        top: 20%;
-        left: 20%;
-        z-index: 1;
-      }
-      #slide-how .slides .second {
-        position: relative;
-        background: #fff;
-        z-index: 0;
-      }
-
-      /* Two-column layout */
-      .left-column {
-        color: #777;
-        width: 20%;
-        height: 92%;
-        float: left;
-      }
-        .left-column h2:last-of-type, .left-column h3:last-child {
-          color: #000;
-        }
-      .right-column {
-        width: 75%;
-        float: right;
-        padding-top: 1em;
-      }
+      .red { color: #fa0000; }
     </style>
   </head>
   <body>
     <textarea id="source">
 
-class: center, middle
+class: center, middle, inverse
 
-# Git et GitHub
-## La gestion de versions
-### Ou comment ne pas perdre son code
+# Git and GitHub
+## Version control
+### or how to not lose your work
 
 ---
 
-# Sommaire
+# Summary
 
-1. Gestion de versions
-  * Comment travailler en équipe ?
-  * Solutions pour la gestion de versions
+1. Version control
+  * How to work as a team?
+  * Version control solutions
 2. Git
-  * Historique
+  * (Brief) History
   * Commandes
-  * Bonnes pratiques
-  * Installer Git
+  * Good pratices
+  * Install Git
 3. GitHub
-  * Héberger son dépôt Git
+  * Host your Git repo
   * GitHub Education Pack
+  * GitHub or Git++
 4. Live Demo
 
 ---
 
-#.center[Travailler en équipe ?]
+#Work as a team?
+##What is the best solution?
 
 * ##Dropbox
 * ##Google Drive
 * ##USB
-* ##Réseau (SMB, NFS)
-* ##~~Pigeon voyageur~~
+* ##Network (SMB, NFS)
+* ##~~FedEx~~
 
 ---
 
-template: inverse
-class: center, middle
+class: center, middle, inverse
 
-# Besoin de gestion de versions ?
+#NONE.red[*]
 
-![Besoin de git ?](public/images/needGit.jpg)
+.footnote[.red[*] No seriously, none, periode.]
+---
+
+class: center, middle, inverse
+
+# Need version control?
+
+![Need Git?](public/images/needGit.jpg)
 
 ---
 
-# Donnez-moi de la gestion de version !
+# Give me version control!
 
 * ##SVN (Subversion)
 * ##Perforce
@@ -172,52 +99,54 @@ class: center, middle
 
 ---
 
-# Historique
+# History
 
-* Remplace BitKeeper pour la gestion du noyau Linux
-* Développé par J.Hamano et L.Torvalds depuis 2005.
+* Replace BitKeeper for the version control of the Linux kernel
+* Developed by J.Hamano and L.Torvalds since 2005.
 
-##.center[Git == une personne désagréable]
+##.center[Git == an unpleasant person]
 
 ---
 
 # Commandes
 
-## Plus utilisées
-* init == Création d'un dépôt
-* clone == Récupération d'un dépôt
-* Pull == Récupération des dernière modifications
-* Push == Envoi des dernières modifications
-* Commit == "Validation" des modifications apportées
+## Most used
+* init == Create a repo
+* clone == Get a full repo
+* Pull == Get the last modifications
+* Push == Send your last modifications
+* Commit == "Validate" your modifications
 ----
-## (Un peu) moins utilisées
-* Status == Affiche le status du dépôt
-* Revert == Revenir à un _commit_ précédent
-* Add/Rm == Ajoute/Enlève des fichiers au _commit_
+## (Slightly) less used
+* Status == Get the status of a repo
+* Revert == Get back to a previous _commit_
+* Add/Rm == Add/Remove files to a _commit_
 
 ---
 
-# Comment bien utiliser Git ?
+class: center, middle, inverse
 
-.center[![Besoin de git ?](public/images/doesNotSimply.jpg)]
+# How to use Git correctly ?
 
----
-
-# Bonnes Pratiques
-
-* ## Commenter ses _commit_
-* ## _Pull_ avant tout travail
-* ## _Push_ pertinents et "complets"
-* ## Utiliser les _.gitignore_, _.gitignore_, etc...
-* ## _Branches_ pour les modifications lourdes
+![Does not simply](public/images/doesNotSimply.jpg)
 
 ---
 
-# Installer Git
+# Good practices
 
-* ### Sous Windows : MySysGit
-* ### Sous Windows : apt-get install git || dnf install git || pacman -Syu git
-* ### Sous Windows : git-osx-installer
+* ## Comment your _commit_
+* ## _Pull_ before work
+* ## Usefull and complete _Push_
+* ## Use _.gitignore_, _.gitkeep_, etc...
+* ## Use _Branches_ for heavy modifications
+
+---
+
+# Install Git
+
+* ### On Windows : MySysGit
+* ### On Windows : apt-get install git || dnf install git || pacman -Syu git
+* ### On Windows : git-osx-installer
 ----
 ### Clients
 * ### TortoiseGit, SmartGit, Tower
@@ -227,32 +156,34 @@ class: center, middle
 
 # GitHub
 
-* ## Héberger son dépôt Git
-  * Pas de configuration
-  * Environnement complet (wiki, issue)
-* ## Réseau social
-  * Partagez vos projets
-  * Suivez vos développeurs favoris
+* ## Host your git repo
+  * No configuration needed
+  * Complete environment (wiki, issue)
+* ## Social network
+  * Share your projects
+  * Follow your favorites developers
 
 ---
+
+class: center, middle, inverse
 
 # GitHub Education Pack
 
-.center[![Besoin de git ?](public/images/freeStuff.jpg)]
+![Free stuff!?](public/images/freeStuff.jpg)
 
 ---
 
-# GitHub ou Git++
+# GitHub or Git++
 
-* ## Fork == Cloner les sources d'un autre développeur.
-* ## Pull Request == Proposer aux créateurs du dépôt principal d'intégrer vos modifications
-* ## Issue == Gérer des tâches ou rapports de bugs
-* ## Wiki == Créer un wiki explicatif pour votre projet
-* ## github.io == Déployer gratuitement votre site sur GitHub
+* ## Fork == Clone the sources of other developers.
+* ## Pull Request == Ask the creator to merge his work with yours
+* ## Issue == Manage bug reports and issues
+* ## Wiki == Create a wiki for your projects
+* ## github.io == Deploy freely your website on GitHub
 
 ---
 
-class: center, middle
+class: center, middle, inverse
 # Live Demo
 
     </textarea>
